@@ -51,13 +51,13 @@ Traditional methods for sharing versioned assets and code are often cumbersome a
 Stop wrestling, start syncing.
 
 ### 1. Install Brain
-'''bash
+```bash
 pip install git-brain
-'''
+```
 
 ### 2. Create Your First "Brain" Repository (The Central Source)
 Imagine you have a set of shared Terraform modules or CI pipeline configurations.
-'''bash
+```bash
 # Create and initialize your Brain repository
 mkdir shared-infra-brain
 cd shared-infra-brain
@@ -86,10 +86,10 @@ git commit -m "feat: Initial set of shared infrastructure neurons"
 # Optional: Push to a remote (e.g., GitHub, GitLab)
 # git remote add origin <your-brain-repo-url>
 # git push -u origin main
-'''
+```
 
 ### 3. Use Neurons in Your "Consumer" Project
-'''bash
+```bash
 # Navigate to your existing project, or create a new one
 cd ..
 mkdir my-service-deployment
@@ -112,27 +112,27 @@ cat .gitlab-ci.yml
 # Commit this Brain setup
 git add .
 git commit -m "feat: Integrate common infrastructure neurons via Brain"
-'''
+```
 
 ### 4. The Effortless Daily Workflow
 *   **Infrastructure Update in the Brain:** A new version of `default_build.yml` is committed to `shared-infra-brain`.
 *   **Sync Your Service Project:** In `my-service-deployment`:
-    '''bash
+    ```bash
     brain pull # Recommended: pulls project changes AND syncs neurons (if AUTO_SYNC_ON_PULL=true)
     # OR
     brain sync # Just sync neurons
-    '''
+    ```
     Your `.gitlab-ci.yml` is now updated with the latest version from the Brain.
 
 *   **Proposing a Change to a Neuron (Potentially `readwrite`):**
     You've improved `.gitlab-ci.yml` (mapped from `ci/pipelines/default_build.yml`) in your `my-service-deployment` project.
     (Ensure `ALLOW_PUSH_TO_BRAIN=true` and `ALLOW_LOCAL_MODIFICATIONS=true` in `.neurons` for this project if you intend to modify and export).
-    '''bash
+    ```bash
     # After committing your changes to .gitlab-ci.yml in my-service-deployment
     brain export .gitlab-ci.yml
     # OR, if you're pushing project changes anyway:
     # brain push --push-to-brain
-    '''
+    ```
     The `shared-infra-brain` now has your improvements as a new commit to `ci/pipelines/default_build.yml` (assuming `readwrite` permission was effectively granted and export successful).
 
 ## 🌱 Current Status & Our Enterprise Vision
@@ -149,7 +149,7 @@ Brain's power and control come from two straightforward INI configuration files.
 
 ### `.brain` File (Located in the Brain Repository Root)
 Defines the brain's identity and what "neurons" it offers for sharing.
-'''ini
+```ini
 [BRAIN]
 ID=global-brand-assets
 DESCRIPTION=Official company branding materials and guidelines
@@ -159,11 +159,11 @@ DESCRIPTION=Official company branding materials and guidelines
 logos/standard/color.svg = readonly
 fonts/primary_typeface.ttf = readonly
 templates/presentations/quarterly_review.pptx = readwrite
-'''
+```
 
 ### `.neurons` File (Located in the Consumer Repository Root)
 Specifies Brain connections, neuron mappings, and synchronization policies.
-'''ini
+```ini
 [BRAIN:brand-kit] # User-defined alias
 REMOTE=git@github.com:our-org/global-brand-assets.git
 BRANCH=main
@@ -179,7 +179,7 @@ AUTO_SYNC_ON_CHECKOUT=false
 # key_name_is_arbitrary = brain_alias::path/in/brain/repo::path/in/this/consumer/repo
 main_logo = brand-kit::logos/standard/color.svg::src/assets/images/company_logo.svg
 quarterly_template = brand-kit::templates/presentations/quarterly_review.pptx::presentations/templates/quarterly.pptx
-'''
+```
 
 ## 🎛️ Full Command Reference
 
