@@ -1,0 +1,70 @@
+site_name: Git Brain
+site_description: '🧠 Intelligent Asset & Code Synchronization for Git. Eradicate duplication, control sharing, and escape submodule hell.'
+site_author: 'FanaticPythoner'
+
+# Link to your GitHub repository
+repo_url: https://github.com/FanaticPythoner/git-brain
+repo_name: 'git-brain'
+
+# Theme Configuration - Using Material for MkDocs
+theme:
+  name: material
+  language: en
+  custom_dir: 'docs/assets'
+  logo: 'assets/Git-Brain_logo_2048x2048.png'
+  favicon: 'assets/Git-Brain_logo.ico'
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.instant
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.annotate
+    - content.tabs.link
+  palette:
+    # Dark mode only
+    scheme: slate
+    primary: '#0089C7'
+    accent: '#0089C7'
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+copyright: 'Copyright © 2025 FanaticPythoner / Nathan Trudeau - Licensed under GPLv3'
+
+nav:
+  - 'Home': 'index.md'
+  - 'Installation': 'installation.md'
+  - 'Quick Start': 'quickstart.md'
+  - 'Core Concepts': 'core_concepts.md'
+  - 'User Guide': 'user_guide.md'
+  - 'Command Reference': 'command_reference.md'
+  - 'Configuration': 'configuration_files.md'
+  - 'Developer Guide':
+      - 'Overview': 'developer_guide.md'
+      - 'Vision & Roadmap': 'vision_roadmap.md'
+  - 'Troubleshooting': 'troubleshooting.md'
+  - 'API Reference': 'api_reference.md'
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_style: default
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+      slugify: !!python/name:pymdownx.slugs.uslugify
+  - attr_list
+  - md_in_html
+
+extra_css:
+  - 'stylesheets/extra.css'
+

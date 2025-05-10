@@ -1,0 +1,142 @@
+/* Custom theme to match the Brain logo */
+
+/* Set dark blue background for the entire site */
+:root {
+  --md-default-bg-color: #081823;
+}
+
+/* Improve text readability on dark background */
+body {
+  color: rgba(255, 255, 255, 0.87);
+}
+
+/* Override header and navigation colors */
+.md-header,
+.md-tabs {
+  background-color: #081823;
+  color: white;
+}
+
+/* Adjust the sidebar colors */
+.md-sidebar {
+  background-color: #081823;
+}
+
+/* Navigation sidebar refinements */
+.md-nav__title {
+  color: white;
+  font-weight: 600;
+}
+
+.md-nav__item--active > .md-nav__link {
+  color: #0089C7;
+  font-weight: 600;
+}
+
+.md-nav__link {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.md-nav__link:hover {
+  color: #0089C7;
+}
+
+/* Table of contents styling */
+.md-sidebar--secondary .md-sidebar__scrollwrap {
+  background-color: rgba(0, 137, 199, 0.05);
+  border-radius: 6px;
+  padding: 5px;
+}
+
+.md-sidebar--secondary .md-nav__title {
+  color: #0089C7;
+  font-size: 1.1em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 137, 199, 0.3);
+}
+
+.md-sidebar--secondary .md-nav__item {
+  padding: 3px 0;
+}
+
+.md-sidebar--secondary .md-nav__link {
+  margin: 3px 0;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.md-sidebar--secondary .md-nav__link:hover {
+  background-color: rgba(0, 137, 199, 0.15);
+}
+
+.md-sidebar--secondary .md-nav__item--active > .md-nav__link {
+  background-color: rgba(0, 137, 199, 0.2);
+  font-weight: 500;
+}
+
+/* Adjust card backgrounds and other elements */
+.md-typeset .admonition,
+.md-typeset details {
+  background-color: rgba(8, 24, 35, 0.8);
+  border-left-color: #0089C7;
+}
+
+/* Adjust link colors */
+.md-typeset a {
+  color: #0089C7;
+}
+.md-typeset a:hover {
+  color: #30a5dc;
+}
+
+/* Code blocks */
+.md-typeset pre > code {
+  background-color: rgba(8, 24, 35, 0.8);
+}
+
+/* Code inline */
+.md-typeset code {
+  background-color: rgba(0, 137, 199, 0.1);
+  color: #0089C7;
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+}
+
+/* Make tables more visible on dark background */
+.md-typeset table:not([class]) {
+  background-color: rgba(8, 24, 35, 0.8);
+  border: 1px solid rgba(0, 137, 199, 0.3);
+}
+
+.md-typeset table:not([class]) th {
+  background-color: rgba(0, 137, 199, 0.2);
+}
+
+.md-typeset table:not([class]) tr:hover {
+  background-color: rgba(0, 137, 199, 0.1);
+}
+
+/* Footer adjustments */
+.md-footer {
+  background-color: #081823;
+}
+
+/* Search dialog */
+.md-search__form {
+  background-color: rgba(0, 137, 199, 0.3);
+}
+
+/* Headings */
+.md-typeset h1,
+.md-typeset h2 {
+  color: #0089C7;
+  font-weight: 600;
+}
+
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+} 
