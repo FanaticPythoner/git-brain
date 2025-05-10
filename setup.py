@@ -1,22 +1,33 @@
-"""
-Setup script for the Brain Git extension.
-"""
-
+import os
+import re
 from setuptools import setup, find_packages
 
-# Read the contents of your README file
+def get_version():
+    version_file = os.path.join(os.path.dirname(__file__), 'brain', '__init__.py')
+    with open(version_file, 'r', encoding='utf-8') as f:
+        version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", f.read(), re.M)
+    if version_match:
+        return version_match.group(1)
+    raise RuntimeError("Unable to find version string.")
+
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
     name="git-brain",
-    version="0.1.0",
+    version=get_version(),
     author="FanaticPythoner",
     author_email="nathantrudeau@hotmail.com",
-    description="🧠 Eradicate code & asset duplication across projects! Brain repositories serve \"neurons\"—your chosen files, folders, and their dependencies—which Brain then intelligently and selectively syncs into any Git consumer repository. Think submodules, on steroid, and without the headaches.",
+    description="🧠 Git extension for intelligent code sharing & synchronization between repositories without duplication.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/FanaticPythoner/git-brain",
+    project_urls={
+        "Homepage": "https://github.com/FanaticPythoner/git-brain",
+        "Source Code": "https://github.com/FanaticPythoner/git-brain",
+        "Issue Tracker": "https://github.com/FanaticPythoner/git-brain/issues",
+        "Documentation": "https://FanaticPythoner.github.io/git-brain/"
+    },
     packages=find_packages(exclude=[
         "tests*",
         "brain_demo*",
@@ -37,6 +48,8 @@ setup(
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
+        "Environment :: Console",
+        "Natural Language :: English",
     ],
     python_requires=">=3.7",
     entry_points={
@@ -47,5 +60,6 @@ setup(
     install_requires=[
         "packaging>=20.0",
     ],
-    keywords="git, extension, code sharing, synchronization, modularity, version control, devops, python, cli"
+    keywords="git, extension, code sharing, synchronization, modularity, version control, devops, python, cli, asset management, neuron",
+    license="GPL-3.0"
 )
