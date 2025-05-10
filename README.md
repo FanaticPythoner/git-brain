@@ -244,4 +244,4 @@ Brain aims to solve a widespread problem. We welcome your expertise and feedback
 ## 📜 License
 
 Brain is licensed under the **GNU General Public License v3.0**.
-See the `LICENSE` file (expected to be in the repository root) for the full license text.
+See the `LICENSE` file for the full license text.
