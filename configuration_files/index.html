@@ -1,0 +1,1105 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="🧠 Intelligent Asset & Code Synchronization for Git. Eradicate duplication, control sharing, and escape submodule hell.">
+      
+      
+        <meta name="author" content="FanaticPythoner">
+      
+      
+      
+        <link rel="prev" href="../command_reference/">
+      
+      
+        <link rel="next" href="../developer_guide/">
+      
+      
+      <link rel="icon" href="../assets/Git-Brain_logo.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.13">
+    
+    
+      
+        <title>Configuration - Git Brain</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="#0089C7" data-md-color-accent="#0089C7">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuration-files" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Git Brain" class="md-header__button md-logo" aria-label="Git Brain" data-md-component="logo">
+      
+  <img src="../assets/Git-Brain_logo_2048x2048.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Git Brain
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FanaticPythoner/git-brain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    git-brain
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Installation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../quickstart/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quick Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../core_concepts/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Core Concepts
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../user_guide/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  User Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../command_reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Configuration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../developer_guide/" class="md-tabs__link">
+          
+  
+  
+  Developer Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../troubleshooting/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Troubleshooting
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api_reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Git Brain" class="md-nav__button md-logo" aria-label="Git Brain" data-md-component="logo">
+      
+  <img src="../assets/Git-Brain_logo_2048x2048.png" alt="logo">
+
+    </a>
+    Git Brain
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FanaticPythoner/git-brain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    git-brain
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    User Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../command_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Command Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brain-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      .brain File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neurons-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      .neurons File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Developer Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Developer Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vision_roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vision & Roadmap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brain-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      .brain File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neurons-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      .neurons File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Configuration</h1>
+
+<h2 id="configuration-files">Configuration Files<a class="headerlink" href="#configuration-files" title="Permanent link">&para;</a></h2>
+<p>Brain's behavior is primarily controlled by two INI-style configuration files: <code>.brain</code> (for brain repositories) and <code>.neurons</code> (for consumer repositories). Both files use case-sensitive keys as <code>ConfigParser.optionxform</code> is set to <code>str</code>.</p>
+<h3 id="brain-file"><code>.brain</code> File<a class="headerlink" href="#brain-file" title="Permanent link">&para;</a></h3>
+<p>Located at the root of a brain repository. Defines the properties of the brain and what it shares.</p>
+<p><strong>Sections and Keys:</strong></p>
+<ol>
+<li>
+<p><strong><code>[BRAIN]</code></strong> (Required)</p>
+<ul>
+<li><code>ID</code>: (Required, String) A unique identifier for this brain. This ID is used by consumers to refer to this brain.
+    <em>Example</em>: <code>ID = my-shared-library</code></li>
+<li><code>DESCRIPTION</code>: (Optional, String) A human-readable description of the brain's purpose.
+    <em>Example</em>: <code>DESCRIPTION = Core utility functions and common assets</code></li>
+</ul>
+</li>
+<li>
+<p><strong><code>[EXPORT]</code></strong> (Required)
+    Defines which files or directories within the brain repository can be shared as neurons and their permissions.</p>
+<ul>
+<li><strong>Format</strong>: <code>&lt;path_pattern_in_brain&gt; = &lt;permission&gt;</code></li>
+<li><code>&lt;path_pattern_in_brain&gt;</code>: (String) A path relative to the brain repository's root. Can be a file or a directory. Path patterns are stored as literal strings; glob matching interpretation is handled by consuming logic if implemented (not directly by <code>config.py</code> loading).</li>
+<li><code>&lt;permission&gt;</code>: (String) Specifies how consumers can interact with the neuron.<ul>
+<li><code>readonly</code> (Default if value is missing or empty string): Consumers can only pull updates.</li>
+<li><code>readwrite</code>: Consumers can pull updates and, if policies align, export local modifications back to the brain.</li>
+</ul>
+</li>
+<li><em>Example</em>:
+    <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[EXPORT]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">utils/logging.py</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">readonly</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">utils/network.py</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">configs/defaults.json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">readwrite</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">assets/images/</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">readonly</span>
+</span></code></pre></div>
+    Here, <code>utils/network.py</code> would default to <code>readonly</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>[ACCESS]</code></strong> (Optional)
+    Controls which entities (e.g., users, groups) can access which exported paths. <em>The provided <code>config.py</code> loads this section, but the enforcement logic is not detailed in the current command implementations.</em></p>
+<ul>
+<li><strong>Format</strong>: <code>&lt;entity_identifier&gt; = &lt;comma_separated_path_patterns&gt;</code></li>
+<li><code>&lt;entity_identifier&gt;</code>: (String) An identifier for a user, group, etc. <code>*</code> is a literal.</li>
+<li><code>&lt;comma_separated_path_patterns&gt;</code>: (String) A comma-separated list of path patterns from the <code>[EXPORT]</code> section. <code>*</code> is a literal. Empty paths are filtered out.</li>
+<li><em>Example</em>:
+    <div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[ACCESS]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">team-alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">utils/logging.py, utils/network.py, configs/defaults.json</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">public-consumers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">assets/images/</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">admin-group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">*</span>
+</span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong><code>[UPDATE_POLICY]</code></strong> (Optional)
+    Defines policies for neuron updates or contributions. <em>The provided <code>config.py</code> loads this section, but the enforcement logic is not detailed in current command implementations.</em></p>
+<ul>
+<li><strong>Format</strong>: <code>&lt;policy_key&gt; = &lt;value&gt;</code></li>
+<li>Supported keys and value types (interpreted from <code>config.py</code>):<ul>
+<li>Boolean keys (e.g., <code>REQUIRE_REVIEW</code>): Parsed from <code>true</code>, <code>yes</code>, <code>1</code> (case-insensitive) to <code>True</code>, and <code>false</code>, <code>no</code>, <code>0</code> to <code>False</code>.</li>
+<li><code>PROTECTED_PATHS</code>: Parsed as a comma-separated string list.</li>
+<li>Other keys are stored as stripped strings. Empty values for keys are skipped during loading unless it's a known boolean policy.</li>
+</ul>
+</li>
+<li><em>Example</em>:
+    <div class="highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[UPDATE_POLICY]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">REQUIRE_REVIEW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">PROTECTED_PATHS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">utils/logging.py, core_modules/</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="na">MIN_APPROVERS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">2</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="na">SOME_OTHER_POLICY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">some_value</span>
+</span></code></pre></div></li>
+</ul>
+</li>
+</ol>
+<p><strong>Example <code>.brain</code> file:</strong>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[BRAIN]</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">common-widgets</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">DESCRIPTION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Shared UI widgets for web projects</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">[EXPORT]</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="na">js/widgets/datepicker.js</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">readonly</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="na">js/widgets/modal.js</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">readwrite</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="na">css/widgets/</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">readonly</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="na">assets/widget-icons/*.svg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">readonly</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="k">[ACCESS]</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="na">frontend-team</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">js/widgets/*, css/widgets/*</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="k">[UPDATE_POLICY]</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="na">REQUIRE_REVIEW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="na">PROTECTED_PATHS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">js/widgets/datepicker.js</span>
+</span></code></pre></div></p>
+<h3 id="neurons-file"><code>.neurons</code> File<a class="headerlink" href="#neurons-file" title="Permanent link">&para;</a></h3>
+<p>Located at the root of a consumer repository. Defines connections to brains, neuron mappings, and synchronization policies.</p>
+<p><strong>Sections and Keys:</strong></p>
+<ol>
+<li>
+<p><strong><code>[BRAIN:&lt;brain_id&gt;]</code></strong> (Required for each brain connection)
+    Defines a connection to a specific brain repository. <code>&lt;brain_id&gt;</code> is a user-defined alias for the brain within this consumer project.</p>
+<ul>
+<li><code>REMOTE</code>: (Required, String) The Git URL of the brain repository. Must be non-empty.
+    <em>Example</em>: <code>REMOTE = git@github.com:my-org/common-widgets.git</code></li>
+<li><code>BRANCH</code>: (Optional, String) The specific branch in the brain repository to track. If not specified, consuming code (e.g. <code>add_neuron</code>, <code>sync_neuron</code>) typically defaults to <code>main</code>.
+    <em>Example</em>: <code>BRANCH = release-v2</code></li>
+<li><code>ARGS</code>: (Optional, String) Additional arguments intended for Git commands when interacting with this brain. Parsed by <code>config.py</code> but not actively used by <code>temp_clone_repo</code> for passing these args.
+    <em>Example</em>: <code>ARGS = --depth 1</code></li>
+</ul>
+</li>
+<li>
+<p><strong><code>[SYNC_POLICY]</code></strong> (Optional, but default values apply if section or keys are absent)
+    Defines global policies for neuron handling. Default values are used if section or specific keys are missing.</p>
+<ul>
+<li><code>AUTO_SYNC_ON_PULL</code>: (Boolean: <code>true</code>/<code>false</code>) Default: <code>True</code>.
+    <em>Example</em>: <code>AUTO_SYNC_ON_PULL = true</code></li>
+<li><code>CONFLICT_STRATEGY</code>: (String: <code>prompt</code>/<code>prefer_brain</code>/<code>prefer_local</code>) Default: <code>prompt</code>.
+    <em>Example</em>: <code>CONFLICT_STRATEGY = prefer_brain</code></li>
+<li><code>ALLOW_LOCAL_MODIFICATIONS</code>: (Boolean: <code>true</code>/<code>false</code>) Default: <code>False</code>.
+    <em>Example</em>: <code>ALLOW_LOCAL_MODIFICATIONS = false</code></li>
+<li><code>ALLOW_PUSH_TO_BRAIN</code>: (Boolean: <code>true</code>/<code>false</code>) Default: <code>False</code>.
+    <em>Example</em>: <code>ALLOW_PUSH_TO_BRAIN = false</code></li>
+<li><code>AUTO_SYNC_ON_CHECKOUT</code>: (Boolean: <code>true</code>/<code>false</code>) Default: <code>False</code>.
+    <em>Example</em>: <code>AUTO_SYNC_ON_CHECKOUT = true</code></li>
+</ul>
+</li>
+<li>
+<p><strong><code>[MAP]</code></strong> (Required Section)
+    Defines mappings of neurons. Each entry is a key-value pair. The key name (e.g., <code>map1</code>) is arbitrary but stored as <code>_map_key</code> in the parsed mapping. The value defines the actual mapping.</p>
+<ul>
+<li><strong>Format for value</strong>: <code>&lt;brain_id&gt;::&lt;source_path_in_brain&gt;::&lt;destination_path_in_consumer&gt;</code><ul>
+<li>All parts must be non-empty. <code>&lt;brain_id&gt;</code> must be a defined brain.</li>
+</ul>
+</li>
+<li><strong>Alternative Format (if only one brain is defined)</strong>: <code>&lt;source_path_in_brain&gt;::&lt;destination_path_in_consumer&gt;</code><ul>
+<li>Brain ID is inferred if exactly one <code>[BRAIN:&lt;brain_id&gt;]</code> section exists.</li>
+</ul>
+</li>
+<li><em>Example</em>:
+    <div class="highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[MAP]</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">widget_datepicker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">common-widgets::js/widgets/datepicker.js::src/components/shared/datepicker.js</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="na">widget_modal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">common-widgets::js/widgets/modal.js::src/components/shared/modal.js</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="na">widget_styles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">common-widgets::css/widgets/::static/css/shared_widgets/</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="na">icons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">assets-brain::icon_set_alpha/::static/icons/vendor_alpha/</span>
+</span></code></pre></div></li>
+</ul>
+</li>
+</ol>
+<p><strong>Example <code>.neurons</code> file:</strong>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[BRAIN:common-widgets]</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">REMOTE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">git@github.com:my-org/common-widgets.git</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="na">BRANCH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">main</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">[BRAIN:utility-scripts]</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="na">REMOTE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">file:///opt/shared-git-repos/utility-scripts</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="na">BRANCH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">master</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">[SYNC_POLICY]</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="na">AUTO_SYNC_ON_PULL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="na">CONFLICT_STRATEGY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">prompt</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="na">ALLOW_LOCAL_MODIFICATIONS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="na">ALLOW_PUSH_TO_BRAIN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="na">AUTO_SYNC_ON_CHECKOUT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="k">[MAP]</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="na">datepicker_js</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">common-widgets::js/widgets/datepicker.js::assets/js/vendor/datepicker.js</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="na">modal_styles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">common-widgets::css/widgets/modal.css::assets/css/vendor/modal_style.css</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="na">backup_script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">utility-scripts::backup/do_backup.sh::tools/backup.sh</span>
+</span></code></pre></div></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025 FanaticPythoner / Nathan Trudeau - Licensed under GPLv3
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "content.tabs.link"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

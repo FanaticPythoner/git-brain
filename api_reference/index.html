@@ -1,0 +1,1298 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="🧠 Intelligent Asset & Code Synchronization for Git. Eradicate duplication, control sharing, and escape submodule hell.">
+      
+      
+        <meta name="author" content="FanaticPythoner">
+      
+      
+      
+        <link rel="prev" href="../troubleshooting/">
+      
+      
+      
+      <link rel="icon" href="../assets/Git-Brain_logo.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.13">
+    
+    
+      
+        <title>API Reference - Git Brain</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="#0089C7" data-md-color-accent="#0089C7">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-reference-internal-modules" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Git Brain" class="md-header__button md-logo" aria-label="Git Brain" data-md-component="logo">
+      
+  <img src="../assets/Git-Brain_logo_2048x2048.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Git Brain
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FanaticPythoner/git-brain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    git-brain
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Installation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../quickstart/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quick Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../core_concepts/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Core Concepts
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../user_guide/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  User Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../command_reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../configuration_files/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Configuration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../developer_guide/" class="md-tabs__link">
+          
+  
+  
+  Developer Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../troubleshooting/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Troubleshooting
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Git Brain" class="md-nav__button md-logo" aria-label="Git Brain" data-md-component="logo">
+      
+  <img src="../assets/Git-Brain_logo_2048x2048.png" alt="logo">
+
+    </a>
+    Git Brain
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FanaticPythoner/git-brain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    git-brain
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    User Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../command_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Command Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration_files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Developer Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Developer Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vision_roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vision & Roadmap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api-reference-internal-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Reference (Internal Modules)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Reference (Internal Modules)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brainconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      brain.config
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#braingit" class="md-nav__link">
+    <span class="md-ellipsis">
+      brain.git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brainsync" class="md-nav__link">
+    <span class="md-ellipsis">
+      brain.sync
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brainutils" class="md-nav__link">
+    <span class="md-ellipsis">
+      brain.utils
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#braincommands" class="md-nav__link">
+    <span class="md-ellipsis">
+      brain.commands.*
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api-reference-internal-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Reference (Internal Modules)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Reference (Internal Modules)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brainconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      brain.config
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#braingit" class="md-nav__link">
+    <span class="md-ellipsis">
+      brain.git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brainsync" class="md-nav__link">
+    <span class="md-ellipsis">
+      brain.sync
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brainutils" class="md-nav__link">
+    <span class="md-ellipsis">
+      brain.utils
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#braincommands" class="md-nav__link">
+    <span class="md-ellipsis">
+      brain.commands.*
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>API Reference</h1>
+
+<h2 id="api-reference-internal-modules">API Reference (Internal Modules)<a class="headerlink" href="#api-reference-internal-modules" title="Permanent link">&para;</a></h2>
+<p>While "Brain" is primarily a command-line tool, its internal modules provide foundational functionalities. This section briefly touches upon key functions and classes within those modules, mainly for developers looking to understand or extend Brain. Note that some functions, especially in <code>brain.config</code>, might raise specific exceptions like <code>BrainConfigError</code> or <code>NeuronsConfigError</code> on issues like file not found or parsing problems, rather than returning <code>None</code> as might be implied by <code>Optional</code> in some older signature comments. The descriptions below reflect observed behavior.</p>
+<h3 id="brainconfig"><code>brain.config</code><a class="headerlink" href="#brainconfig" title="Permanent link">&para;</a></h3>
+<p>Handles loading and saving of <code>.brain</code> (brain repository configuration) and <code>.neurons</code> (consumer repository configuration) files. These files are INI-style and parsed with case-sensitive keys.</p>
+<ul>
+<li>
+<p><code>load_brain_config(file_path: str = '.brain') -&gt; Dict[str, Any]</code></p>
+<ul>
+<li>Loads and parses a <code>.brain</code> file.</li>
+<li><strong>Sections &amp; Keys Processed:</strong><ul>
+<li><code>[BRAIN]</code>: <code>ID</code> (required, string), <code>DESCRIPTION</code> (optional, string).</li>
+<li><code>[EXPORT]</code>: Required. Maps path patterns (strings) to permissions (<code>readonly</code> or <code>readwrite</code>). If permission is not specified (e.g., <code>path =</code>), it defaults to <code>readonly</code>.</li>
+<li><code>[ACCESS]</code>: Optional. Maps entity identifiers (strings) to comma-separated lists of export path patterns. <code>*</code> is treated as a literal string.</li>
+<li><code>[UPDATE_POLICY]</code>: Optional. Parses known boolean-like values (<code>true</code>, <code>false</code>, <code>yes</code>, <code>no</code>, <code>1</code>, <code>0</code>) to Python booleans. <code>PROTECTED_PATHS</code> is parsed as a list of strings. Other keys are stored as strings.</li>
+</ul>
+</li>
+<li>Raises <code>BrainConfigError</code> if the file is not found, required sections/keys are missing, or parsing fails.</li>
+</ul>
+</li>
+<li>
+<p><code>save_brain_config(config: Dict[str, Any], file_path: str = '.brain') -&gt; None</code></p>
+<ul>
+<li>Saves a brain configuration dictionary to a <code>.brain</code> file.</li>
+<li>Writes boolean values as 'true' or 'false'. Lists are saved as comma-separated strings.</li>
+</ul>
+</li>
+<li>
+<p><code>load_neurons_config(file_path: str = '.neurons') -&gt; Dict[str, Any]</code></p>
+<ul>
+<li>Loads and parses a <code>.neurons</code> file. Reads with UTF-8 encoding.</li>
+<li><strong>Sections &amp; Keys Processed:</strong><ul>
+<li><code>[BRAIN:&lt;brain_id&gt;]</code>: Defines connections. <code>&lt;brain_id&gt;</code> is extracted from the section name.<ul>
+<li><code>REMOTE</code>: Required, non-empty string (URL of the brain repository).</li>
+<li><code>BRANCH</code>: Optional, string (branch to track). If absent in the file, it's not defaulted by <code>load_neurons_config</code> itself; consuming code (e.g., <code>add_neuron.py</code>) often defaults to 'main' if the key is missing from the loaded config dict.</li>
+<li><code>ARGS</code>: Optional, string (additional Git arguments, parsed but not actively used by current core sync logic for <code>temp_clone_repo</code>).</li>
+</ul>
+</li>
+<li><code>[SYNC_POLICY]</code>: Optional. If present, updates default policy values. Keys are uppercased internally.<ul>
+<li>Known boolean keys (<code>AUTO_SYNC_ON_PULL</code>, <code>ALLOW_LOCAL_MODIFICATIONS</code>, <code>ALLOW_PUSH_TO_BRAIN</code>, <code>AUTO_SYNC_ON_CHECKOUT</code>) are parsed to Python booleans.</li>
+<li>Other keys (e.g., <code>CONFLICT_STRATEGY</code>) are stored as strings.</li>
+<li>Default policies if section or key is missing: <code>AUTO_SYNC_ON_PULL=True</code>, <code>CONFLICT_STRATEGY='prompt'</code>, <code>ALLOW_LOCAL_MODIFICATIONS=False</code>, <code>ALLOW_PUSH_TO_BRAIN=False</code>, <code>AUTO_SYNC_ON_CHECKOUT=False</code>.</li>
+</ul>
+</li>
+<li><code>[MAP]</code>: Section is required. Defines neuron mappings.<ul>
+<li>Format: <code>key_name = brain_id::source_path::destination_path</code></li>
+<li>Alternate format (if only one brain is defined): <code>key_name = source_path::destination_path</code> (uses the single defined brain_id).</li>
+<li>Parses into a list of dictionaries, each containing <code>brain_id</code>, <code>source</code>, <code>destination</code>, and <code>_map_key</code> (the original key from the INI file). Validates that parts are non-empty and <code>brain_id</code> is known.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Raises <code>NeuronsConfigError</code> if the file is not found, required sections/keys are missing (e.g., <code>[MAP]</code> section, <code>REMOTE</code> in brain definition), or parsing fails.</li>
+</ul>
+</li>
+<li>
+<p><code>save_neurons_config(config: Dict[str, Any], file_path: str = '.neurons') -&gt; None</code></p>
+<ul>
+<li>Saves a neurons configuration dictionary to a <code>.neurons</code> file with UTF-8 encoding.</li>
+<li>Boolean values in <code>SYNC_POLICY</code> are saved as 'true' or 'false'.</li>
+<li><code>MAP</code> entries are written using <code>_map_key</code> if available, otherwise <code>map{i}</code> is generated as the key.</li>
+</ul>
+</li>
+<li>
+<p><code>get_current_repo_neurons_config() -&gt; Optional[Dict[str, Any]]</code></p>
+<ul>
+<li>Loads <code>.neurons</code> from the current working directory using <code>load_neurons_config()</code>.</li>
+<li>Re-raises <code>NeuronsConfigError</code> if <code>load_neurons_config</code> fails (e.g., file not found or parsing error).</li>
+<li><em>Correction: Based on <code>load_neurons_config</code> raising <code>NeuronsConfigError</code> for file not found, this function will not return <code>None</code> if the file is absent but will raise instead.</em></li>
+</ul>
+</li>
+<li>
+<p><code>get_current_repo_brain_config() -&gt; Optional[Dict[str, Any]]</code></p>
+<ul>
+<li>Loads <code>.brain</code> from the current working directory using <code>load_brain_config()</code>.</li>
+<li>Re-raises <code>BrainConfigError</code> if <code>load_brain_config</code> fails.</li>
+<li><em>Correction: Similar to above, this will raise on file not found.</em></li>
+</ul>
+</li>
+<li>
+<p><code>is_brain_repo() -&gt; bool</code></p>
+<ul>
+<li>Checks if a <code>.brain</code> file exists in the current working directory.</li>
+</ul>
+</li>
+<li>
+<p><code>is_neuron_repo() -&gt; bool</code></p>
+<ul>
+<li>Checks if a <code>.neurons</code> file exists in the current working directory.</li>
+</ul>
+</li>
+<li>
+<p>Exceptions: <code>BrainConfigError</code>, <code>NeuronsConfigError</code></p>
+</li>
+</ul>
+<h3 id="braingit"><code>brain.git</code><a class="headerlink" href="#braingit" title="Permanent link">&para;</a></h3>
+<p>Provides Git command execution and utility functions using <code>subprocess</code>.</p>
+<ul>
+<li>
+<p><code>run_git_command(args: List[str], cwd: Optional[str] = None, timeout_seconds: Optional[int] = 60) -&gt; str</code></p>
+<ul>
+<li>Executes a Git command (e.g., <code>args=['status', '--porcelain']</code>).</li>
+<li>Returns <code>stdout</code> as a string (stripped of trailing whitespace).</li>
+<li>Raises <code>GitError</code> on non-zero exit code, timeout, or if <code>git</code> executable is not found.</li>
+</ul>
+</li>
+<li>
+<p><code>is_git_repo(path: str = '.') -&gt; bool</code></p>
+<ul>
+<li>Checks if the given path is within a Git working tree or is a bare repository. Uses <code>git rev-parse --is-inside-work-tree</code> and <code>git rev-parse --is-bare-repository</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>is_bare_repo(repo_path: str) -&gt; bool</code></p>
+<ul>
+<li>Checks if the <code>repo_path</code> is a bare Git repository using <code>git rev-parse --is-bare-repository</code>.</li>
+<li>Returns <code>False</code> if <code>repo_path</code> is not a Git repository (based on "not a git repository" in error message). Raises <code>GitError</code> for other Git command issues.</li>
+</ul>
+</li>
+<li>
+<p><code>get_repo_root(path: str = '.') -&gt; str</code></p>
+<ul>
+<li>Returns the absolute path to the root of the Git repository containing <code>path</code>. Uses <code>git rev-parse --show-toplevel</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>is_file_tracked(file_path: str, cwd: Optional[str] = None) -&gt; bool</code></p>
+<ul>
+<li>Checks if <code>file_path</code> is tracked by Git. Uses <code>git ls-files --error-unmatch &lt;file_path&gt;</code>. Returns <code>False</code> if command fails (e.g. file not tracked, or other git error).</li>
+</ul>
+</li>
+<li>
+<p><code>is_file_modified(file_path: str, cwd: Optional[str] = None) -&gt; bool</code></p>
+<ul>
+<li>Checks if <code>file_path</code> has modifications in the working tree or staging area. Uses <code>git status --porcelain &lt;file_path&gt;</code>. Any output from <code>git status --porcelain</code> for the file means some kind of status change. Returns <code>False</code> on <code>GitError</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>get_file_hash(file_path: str, cwd: Optional[str] = None) -&gt; str</code></p>
+<ul>
+<li>Returns the Git blob hash of <code>file_path</code> as it exists in the <code>HEAD</code> commit. Uses <code>git rev-parse HEAD:&lt;file_path&gt;</code>. Raises <code>GitError</code> if file not in HEAD or other Git error.</li>
+</ul>
+</li>
+<li>
+<p><code>get_changed_files(cwd: Optional[str] = None) -&gt; List[str]</code></p>
+<ul>
+<li>Returns a list of file paths (relative to repository root) that are changed (modified, added, deleted, renamed, copied) in the working tree or staging area. Parses <code>git status --porcelain</code>. Returns empty list on <code>GitError</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>clone_repo(url: str, target_dir: str, args: Optional[List[str]] = None) -&gt; bool</code></p>
+<ul>
+<li>Clones <code>url</code> into <code>target_dir</code> with optional <code>args</code>. Raises <code>GitError</code> on failure. Returns <code>True</code> on success (as failure raises exception).</li>
+</ul>
+</li>
+<li>
+<p><code>temp_clone_repo(url: str, branch: Optional[str] = None) -&gt; str</code></p>
+<ul>
+<li>Clones a repository into a temporary directory. Returns the path to this directory.</li>
+<li>Uses shallow clone (<code>--depth=1 --quiet</code>) for remote URLs (URLs not starting with <code>file://</code> and not identified as local absolute directory paths). Uses full, quiet clone for local URLs.</li>
+<li>Cleans up the temporary directory on failure. Provides enhanced error messages for GitHub authentication issues.</li>
+</ul>
+</li>
+<li>
+<p><code>is_github_url(url: str) -&gt; bool</code></p>
+<ul>
+<li>Heuristically checks if a URL is a GitHub URL (HTTPS or SSH, including SCP-like syntax).</li>
+</ul>
+</li>
+<li>
+<p><code>is_auth_error(error_message: str) -&gt; bool</code></p>
+<ul>
+<li>Heuristically checks if a Git error message indicates an authentication/authorization problem by looking for common keywords/patterns.</li>
+</ul>
+</li>
+<li>
+<p>Exception: <code>GitError</code></p>
+</li>
+</ul>
+<h3 id="brainsync"><code>brain.sync</code><a class="headerlink" href="#brainsync" title="Permanent link">&para;</a></h3>
+<p>Contains the logic for neuron synchronization, conflict resolution,and exporting.</p>
+<ul>
+<li>
+<p><code>sync_neuron(neurons_config: Dict[str, Any], brain_id: str, source_path: str, dest_path: str, repo_path: str = '.') -&gt; Dict[str, Any]</code></p>
+<ul>
+<li>Synchronizes a single neuron.</li>
+<li>Temporarily clones the brain repository using <code>temp_clone_repo</code>.</li>
+<li>Copies files/directories from brain source to consumer destination.</li>
+<li>Handles conflicts based on <code>effective_conflict_strategy</code>. This strategy is <code>prefer_brain</code> if <code>ALLOW_LOCAL_MODIFICATIONS</code> is <code>false</code> and <code>CONFLICT_STRATEGY</code> is <code>prompt</code>; otherwise, it's the <code>CONFLICT_STRATEGY</code> from <code>SYNC_POLICY</code>.</li>
+<li>Merges neuron-specific requirements into the consumer's root <code>requirements.txt</code>. For directory neurons, it looks for <code>requirements.txt</code> or <code>&lt;dirname&gt;requirements.txt</code> inside the neuron's source directory in the brain. For file neurons (<code>neuron_file.py</code>), it looks for an adjacent <code>neuron_file.pyrequirements.txt</code> in the brain.</li>
+<li>Returns a result dictionary with <code>status</code> ('success'/'error'), <code>action</code> ('added'/'updated'/'unchanged'/'skipped'), <code>message</code>, etc.</li>
+</ul>
+</li>
+<li>
+<p><code>sync_all_neurons(neurons_config: Dict[str, Any], repo_path: str = '.') -&gt; List[Dict[str, Any]]</code></p>
+<ul>
+<li>Iterates through all mappings in <code>neurons_config['MAP']</code> and calls <code>sync_neuron</code> for each valid mapping.</li>
+<li>Returns a list of result dictionaries from <code>sync_neuron</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>get_modified_neurons(neurons_config: Dict[str, Any], repo_path: str = '.') -&gt; List[Dict[str, Any]]</code></p>
+<ul>
+<li>Identifies consumer neurons whose local paths (as specified in <code>MAP</code>'s <code>destination</code>) correspond to files reported as changed by <code>brain.git.get_changed_files()</code>.</li>
+<li>A destination path is considered a directory if its mapping ends with <code>/</code> or <code>os.sep</code>, or if it exists on the filesystem as a directory.</li>
+<li>Returns a list of mapping dictionaries for these modified neurons.</li>
+</ul>
+</li>
+<li>
+<p><code>export_neurons_to_brain(neurons_config: Dict[str, Any], modified_neurons: List[Dict[str, Any]], repo_path: str = '.', commit_message_override: Optional[str] = None) -&gt; Dict[str, Any]</code></p>
+<ul>
+<li>Exports changes from consumer neurons back to their brain repositories.</li>
+<li>Requires <code>ALLOW_PUSH_TO_BRAIN=true</code> in the consumer's <code>SYNC_POLICY</code>.</li>
+<li>Groups neurons by <code>brain_id</code>.</li>
+<li>For local non-bare brains (<code>file://</code> URL, not bare, correct branch, clean working tree): copies changes directly, adds, and commits.</li>
+<li>For remote/bare brains: temporarily clones the brain, copies changes, adds, commits, and pushes.</li>
+<li><strong>Important:</strong> This function does <em>not</em> re-verify if the neuron has <code>readwrite</code> permission in the <em>brain's <code>.brain</code> file</em> during the export; it relies on the <code>modified_neurons</code> list and the consumer's <code>ALLOW_PUSH_TO_BRAIN</code> policy.</li>
+<li>Returns a dictionary mapping brain IDs to export results (which include <code>status</code>, <code>message</code>, and <code>exported_neurons</code> list).</li>
+</ul>
+</li>
+<li>
+<p><code>detect_conflicts(local_content_orig: Union[str, bytes], brain_content_orig: Union[str, bytes]) -&gt; bool</code></p>
+<ul>
+<li>Compares byte content. If different, and both are decodable as UTF-8, compares string content. Returns <code>True</code> if different.</li>
+</ul>
+</li>
+<li>
+<p><code>handle_conflicts(file_path: str, local_content_bytes: bytes, brain_content_bytes: bytes, strategy: str = 'prompt') -&gt; Dict[str, Any]</code></p>
+<ul>
+<li>Resolves content conflicts based on strategy:<ul>
+<li><code>prefer_brain</code>: Returns brain content.</li>
+<li><code>prefer_local</code>: Returns local content.</li>
+<li><code>prompt</code>: If non-interactive (<code>not sys.stdin.isatty()</code>), defaults to <code>prefer_brain</code>. Interactively, shows diff (for text files) and prompts user to choose: <code>(b)rain</code>, <code>(l)ocal</code>, or <code>(m)erge</code>. Merge uses <code>git merge-file</code>.</li>
+</ul>
+</li>
+<li>Returns a dictionary with <code>resolution</code> ('brain', 'local', 'merged', 'merged_with_conflicts') and <code>content</code> (bytes).</li>
+</ul>
+</li>
+<li>
+<p><code>parse_requirements(content: str) -&gt; Dict[str, str]</code></p>
+<ul>
+<li>Parses <code>requirements.txt</code>-style content. Returns a dictionary mapping package names to version strings. Only captures version string if <code>==</code> is used (e.g., <code>pkg==1.0</code> -&gt; <code>{'pkg': '1.0'}</code>). For other specifiers (e.g., <code>pkg&gt;=1.0</code>, <code>pkg</code>), the version string is stored as empty.</li>
+</ul>
+</li>
+<li>
+<p><code>merge_requirements(repo_requirements_content: str, neuron_requirements_content: str) -&gt; str</code></p>
+<ul>
+<li>Merges two sets of requirements parsed by <code>parse_requirements</code>.</li>
+<li>If <code>packaging.version.parse</code> is available and versions are PEP 440 compliant <code>==</code> specifications, it attempts to take the higher version.</li>
+<li>If versions are not parseable or one is non-specific (<code>""</code>), it generally prefers the neuron's specific version if available, or the repo's if the neuron's is non-specific. If both are non-specific, it remains non-specific. If both are specific but unparseable, it prefers the neuron's if they differ.</li>
+<li>Returns the merged content as a string, reconstructing <code>name==version</code> lines or just <code>name</code> lines.</li>
+</ul>
+</li>
+<li>
+<p>Exception: <code>SyncError</code></p>
+</li>
+</ul>
+<h3 id="brainutils"><code>brain.utils</code><a class="headerlink" href="#brainutils" title="Permanent link">&para;</a></h3>
+<p>General utility functions.</p>
+<ul>
+<li>
+<p><code>ensure_directory_exists(path: str) -&gt; None</code></p>
+<ul>
+<li>Creates a directory if it doesn't exist, including parent directories (<code>os.makedirs(path, exist_ok=True)</code>).</li>
+</ul>
+</li>
+<li>
+<p><code>copy_file_or_directory(source: str, destination: str, overwrite: bool = True) -&gt; bool</code></p>
+<ul>
+<li>Copies a file or directory. Uses <code>shutil.copytree</code> for directories (removing destination directory first if it exists and <code>overwrite</code> is true) and <code>shutil.copy2</code> for files. Parent directory of <code>destination</code> is created if it doesn't exist.</li>
+<li>Returns <code>True</code> on success. Returns <code>False</code> if <code>source</code> doesn't exist, or if <code>destination</code> exists and <code>overwrite</code> is <code>False</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>read_file_content(file_path: str, binary: bool = False) -&gt; Union[str, bytes]</code></p>
+<ul>
+<li>Reads file content as text (UTF-8 by default for text mode) or bytes.</li>
+</ul>
+</li>
+<li>
+<p><code>write_file_content(file_path: str, content: Union[str, bytes], binary: bool = False) -&gt; None</code></p>
+<ul>
+<li>Writes content to a file as text (UTF-8 by default for text mode) or bytes. Ensures parent directory exists.</li>
+</ul>
+</li>
+<li>
+<p><code>parse_mapping(mapping_str: str) -&gt; Tuple[str, str, str]</code></p>
+<ul>
+<li>Parses a neuron mapping string "brain_id::source::destination" into a 3-tuple. Raises <code>ValueError</code> if format is not three parts separated by <code>::</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>find_mapping_for_neuron(neurons_config: Dict[str, Any], neuron_path: str) -&gt; Optional[Dict[str, str]]</code></p>
+<ul>
+<li>Finds the neuron mapping from <code>neurons_config['MAP']</code> whose <code>destination</code> matches <code>neuron_path</code> (after path normalization).</li>
+<li>For directory mappings (destination in config ends with <code>/</code>), it checks if the normalized <code>neuron_path</code> starts with the normalized directory path.</li>
+</ul>
+</li>
+<li>
+<p><code>format_size(size_bytes: int) -&gt; str</code></p>
+<ul>
+<li>Formats a byte size into a human-readable string (B, KB, MB, GB) with one decimal place for KB, MB, GB.</li>
+</ul>
+</li>
+</ul>
+<h3 id="braincommands"><code>brain.commands.*</code><a class="headerlink" href="#braincommands" title="Permanent link">&para;</a></h3>
+<p>Each module in <code>brain.commands</code> (e.g., <code>add_brain.py</code>, <code>sync.py</code>) contains a <code>handle_&lt;command_name&gt;(args: List[str]) -&gt; int</code> function that implements the logic for that specific CLI command. These are orchestrated by <code>brain.cli.main</code>. The exit code is typically <code>0</code> for success and non-zero for errors. <code>argparse</code> within handlers may raise <code>SystemExit</code> on argument errors or for <code>--help</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025 FanaticPythoner / Nathan Trudeau - Licensed under GPLv3
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "content.tabs.link"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

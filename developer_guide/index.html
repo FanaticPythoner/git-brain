@@ -1,0 +1,1097 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="🧠 Intelligent Asset & Code Synchronization for Git. Eradicate duplication, control sharing, and escape submodule hell.">
+      
+      
+        <meta name="author" content="FanaticPythoner">
+      
+      
+      
+        <link rel="prev" href="../configuration_files/">
+      
+      
+        <link rel="next" href="../vision_roadmap/">
+      
+      
+      <link rel="icon" href="../assets/Git-Brain_logo.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.13">
+    
+    
+      
+        <title>Overview - Git Brain</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="#0089C7" data-md-color-accent="#0089C7">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#developer-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Git Brain" class="md-header__button md-logo" aria-label="Git Brain" data-md-component="logo">
+      
+  <img src="../assets/Git-Brain_logo_2048x2048.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Git Brain
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FanaticPythoner/git-brain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    git-brain
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Installation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../quickstart/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quick Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../core_concepts/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Core Concepts
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../user_guide/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  User Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../command_reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../configuration_files/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Configuration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Developer Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../troubleshooting/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Troubleshooting
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api_reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Git Brain" class="md-nav__button md-logo" aria-label="Git Brain" data-md-component="logo">
+      
+  <img src="../assets/Git-Brain_logo_2048x2048.png" alt="logo">
+
+    </a>
+    Git Brain
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FanaticPythoner/git-brain" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    git-brain
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    User Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../command_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Command Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration_files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Developer Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Developer Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#developer-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developer Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Developer Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#synchronization-logic-brainsync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Synchronization Logic (brain.sync)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-operations-braingit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Operations (brain.git)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-logic-brainsyncexport_neurons_to_brain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export Logic (brain.sync.export_neurons_to_brain)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vision_roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vision & Roadmap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#developer-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developer Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Developer Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#synchronization-logic-brainsync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Synchronization Logic (brain.sync)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-operations-braingit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Operations (brain.git)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-logic-brainsyncexport_neurons_to_brain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export Logic (brain.sync.export_neurons_to_brain)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Overview</h1>
+
+<h2 id="developer-guide">Developer Guide<a class="headerlink" href="#developer-guide" title="Permanent link">&para;</a></h2>
+<p>This section provides insights into the internal workings of Brain, primarily derived from <code>sync.py</code>, <code>git.py</code>, and <code>config.py</code>.</p>
+<h3 id="synchronization-logic-brainsync">Synchronization Logic (<code>brain.sync</code>)<a class="headerlink" href="#synchronization-logic-brainsync" title="Permanent link">&para;</a></h3>
+<p>The core of Brain's functionality lies in its synchronization mechanism.</p>
+<ol>
+<li>
+<p><strong><code>sync_all_neurons</code></strong>:</p>
+<ul>
+<li>Iterates through all valid mappings in the <code>[MAP]</code> section of the <code>neurons_config</code>.</li>
+<li>For each mapping, calls <code>sync_neuron</code>. Returns a list of results.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>sync_neuron</code></strong>:</p>
+<ul>
+<li><strong>Configuration</strong>: Retrieves brain details (URL, branch from <code>BRAINS</code> section) and sync policies (<code>SYNC_POLICY</code>) from the passed <code>neurons_config</code>. Determines the <code>effective_conflict_strategy</code>.</li>
+<li><strong>Cloning Brain</strong>: Performs a temporary clone of the brain repository using <code>brain.git.temp_clone_repo</code>. This is a shallow clone (<code>--depth=1 --quiet</code>) for remote URLs by default.</li>
+<li><strong>Path Resolution</strong>: Determines the full path to the neuron source in the cloned brain and the neuron destination in the consumer repository. Ensures destination parent directory exists.</li>
+<li><strong>Directory vs. File Sync</strong>:<ul>
+<li><strong>Directory Neuron</strong>:<ul>
+<li>If the consumer destination doesn't exist or is not a directory, it's created/replaced by copying the entire directory tree from the brain source using <code>shutil.copytree</code> (after removing the destination if it's a file, or removing and re-copying if it's an existing directory to ensure a clean state).</li>
+<li>If the destination directory exists, it walks through the brain's neuron directory. For each file/sub-directory:<ul>
+<li>Creates corresponding sub-directories in the consumer if they don't exist.</li>
+<li>For files (excluding the neuron's own <code>requirements.txt</code> if present directly in the neuron source dir), it reads the brain version and the local consumer version (if it exists).</li>
+<li><code>detect_conflicts</code> is called. If conflicts exist, <code>handle_conflicts</code> is invoked.</li>
+<li>The consumer's file is updated with the resolved content if it differs from the original local content.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>File Neuron</strong>:<ul>
+<li>The brain's file content is read.</li>
+<li>If the consumer's destination exists and is a file, <code>detect_conflicts</code> and <code>handle_conflicts</code> are used.</li>
+<li>The consumer's file is updated if the resolved content differs.</li>
+<li>If the destination doesn't exist or is a directory (type mismatch), it's created/replaced.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Requirements Merging</strong>:<ul>
+<li>After syncing the neuron's content, it checks for associated requirements files:<ul>
+<li>For a directory neuron (e.g., <code>brain_src/my_dir/</code>), it looks for <code>brain_src/my_dir/requirements.txt</code> or <code>brain_src/my_dir/my_dirrequirements.txt</code>.</li>
+<li>For a file neuron (e.g., <code>brain_src/my_util.py</code>), it looks for <code>brain_src/my_util.pyrequirements.txt</code> adjacent to the neuron file.</li>
+</ul>
+</li>
+<li>If found, <code>parse_requirements</code> reads both the neuron's requirements and the consumer's root <code>requirements.txt</code>.</li>
+<li><code>merge_requirements</code> combines them (preferring higher <code>==</code> versions if <code>packaging.version</code> can parse, or neuron's version string otherwise if different). The consumer's root <code>requirements.txt</code> is updated.</li>
+</ul>
+</li>
+<li><strong>Cleanup</strong>: The temporary brain clone is removed.</li>
+<li><strong>Result</strong>: Returns a dictionary indicating <code>status</code> (<code>success</code>/<code>error</code>), <code>action</code> (<code>added</code>/<code>updated</code>/<code>unchanged</code>/<code>skipped</code>), <code>message</code>, and <code>requirements_merged</code> (boolean).</li>
+</ul>
+</li>
+<li>
+<p><strong>Conflict Handling (<code>handle_conflicts</code>)</strong>:</p>
+<ul>
+<li>If strategy is <code>prefer_brain</code> or <code>prefer_local</code>, returns the respective content immediately.</li>
+<li>If <code>prompt</code>:<ul>
+<li>In non-interactive environments (<code>not sys.stdin.isatty()</code>), defaults to <code>prefer_brain</code>.</li>
+<li>Interactively:<ul>
+<li>Shows a diff for text files using <code>difflib.unified_diff</code>.</li>
+<li>Asks user to choose: <code>(b)rain</code>, <code>(l)ocal</code>, <code>(m)erge</code> (merge only available for text files).</li>
+<li>Merge option (<code>m</code>): Uses <code>git merge-file</code> with temporary files. The merged output (potentially with conflict markers) becomes the new content.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Returns a dictionary with <code>resolution</code> and <code>content</code>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="git-operations-braingit">Git Operations (<code>brain.git</code>)<a class="headerlink" href="#git-operations-braingit" title="Permanent link">&para;</a></h3>
+<p>Brain uses a custom <code>run_git_command</code> function that executes Git commands via <code>subprocess.run</code>.</p>
+<ul>
+<li><strong><code>temp_clone_repo(url, branch)</code></strong>:<ul>
+<li>Creates a temporary directory.</li>
+<li>Determines if the URL is local (<code>file://</code> or an absolute path to an existing directory).</li>
+<li>Uses shallow clone (<code>--depth=1 --quiet</code>) for remote URLs. For local URLs, it's a full, quiet clone.</li>
+<li>Handles <code>GitError</code>, providing enhanced messages for GitHub authentication issues by checking <code>is_github_url</code> and <code>is_auth_error</code>.</li>
+<li>Cleans up the temporary directory on failure.</li>
+</ul>
+</li>
+<li><strong>File Status Checks</strong>:<ul>
+<li><code>is_file_tracked()</code>: Uses <code>git ls-files --error-unmatch &lt;file_path&gt;</code>.</li>
+<li><code>is_file_modified()</code>: Uses <code>git status --porcelain &lt;file_path&gt;</code>. Any output indicates a change status.</li>
+<li><code>get_file_hash()</code>: Uses <code>git rev-parse HEAD:&lt;file_path&gt;</code> to get the blob hash from <code>HEAD</code>.</li>
+</ul>
+</li>
+<li><strong><code>get_changed_files()</code></strong>: Parses <code>git status --porcelain</code> output to list all files that are modified, added, deleted, renamed, or copied in the working tree or staging area relative to <code>HEAD</code>. Attempts basic unquoting for paths with spaces.</li>
+</ul>
+<h3 id="export-logic-brainsyncexport_neurons_to_brain">Export Logic (<code>brain.sync.export_neurons_to_brain</code>)<a class="headerlink" href="#export-logic-brainsyncexport_neurons_to_brain" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Policy Check</strong>: Verifies <code>ALLOW_PUSH_TO_BRAIN</code> is <code>true</code> in the consumer's <code>SYNC_POLICY</code>.</li>
+<li><strong>Grouping</strong>: Groups <code>modified_neurons</code> by their <code>brain_id</code>.</li>
+<li><strong>Processing Each Brain</strong>:<ul>
+<li><strong>Local Non-Bare Brains</strong>: If the brain's remote URL is <code>file://</code> and points to a local non-bare Git repository:<ul>
+<li>Checks if the brain repo is clean (no uncommitted changes) and on the target branch (if a branch is specified in <code>.neurons</code>).</li>
+<li>If checks pass, modifications are copied directly into this local brain's working tree.</li>
+<li><code>git add .</code> and <code>git commit</code> are run directly in the local brain repository. No <code>git push</code> is needed.</li>
+</ul>
+</li>
+<li><strong>Remote or Bare Local Brains</strong>:<ul>
+<li>The brain repository is temporarily cloned (using <code>temp_clone_repo</code>).</li>
+<li>Modified neuron files/directories are copied from the consumer to the corresponding <code>source_path</code> in the temporary clone.</li>
+<li><code>git add .</code> and <code>git commit</code> are run in the clone.</li>
+<li><code>git push</code> is run from the clone to the brain's actual remote.</li>
+</ul>
+</li>
+<li><strong>Commit Message</strong>: A detailed commit message is generated listing the exported items (source path from brain, destination path from consumer), unless <code>commit_message_override</code> is provided.</li>
+</ul>
+</li>
+<li><strong>Cleanup</strong>: The temporary clone (if used) is deleted.</li>
+<li><strong>Important</strong>: The current implementation of <code>export_neurons_to_brain</code> does <strong>not</strong> re-validate if the neuron is <code>readwrite</code> based on the target <em>Brain's <code>.brain</code> configuration</em> during the export. It relies on the provided <code>modified_neurons</code> list and the consumer's <code>ALLOW_PUSH_TO_BRAIN</code> policy.</li>
+</ul>
+<h3 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">&para;</a></h3>
+<p>Both <code>brain.sync</code> and <code>brain.git</code> include debug logging flags (<code>ENABLE_SYNC_DEBUG_LOGGING</code>, <code>ENABLE_GIT_DEBUG_LOGGING</code>). When <code>True</code>, they print messages to <code>sys.stderr</code> via <code>_debug_log_sync</code> and <code>_debug_log_git</code> respectively. These are enabled by default in the provided code.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025 FanaticPythoner / Nathan Trudeau - Licensed under GPLv3
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "content.tabs.link"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
