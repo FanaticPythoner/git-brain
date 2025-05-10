@@ -117,7 +117,7 @@ This phase aims to build directly upon the existing architecture to deliver feat
 
 Brain's current Alpha version already solves significant pain points. With the community's involvement and feedback, especially from those tackling complex inter-repository dependencies at scale, we can realize this ambitious vision.
 
-*   **Try Brain:** See the [Quick Start](quickstart.md).
+*   **Try Brain:** See the [Quick Start](https://fanaticpythoner.github.io/git-brain/quickstart/).
 *   **Report Issues & Suggest Features:** Visit the project's issue tracker.
 *   **Contribute:** Refer to `CONTRIBUTING.md` (if available) for guidelines.
 
