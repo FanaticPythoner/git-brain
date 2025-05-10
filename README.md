@@ -1,3 +1,6 @@
+![Git-Brain_logo_512x512](https://github.com/FanaticPythoner/git-brain/blob/main/docs/assets/Git-Brain_logo_512x512.png?raw=true)
+
+
 # Brain: Intelligent Asset & Code Synchronization for Git.
 
 **🧠 Eradicate code & asset duplication across projects! Brain repositories serve "neurons"—your chosen files, folders, and their dependencies—which Brain then intelligently and selectively syncs into any Git consumer repository. Think submodules, on steroids, and without the headaches.**
