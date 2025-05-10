@@ -8,6 +8,8 @@ Brain is a **language-agnostic Git extension, architected with enterprise-scale 
 
 **Our vision is to provide a foundational layer for reducing silos, accelerating secure delivery, and enforcing universal standards across your most critical version-controlled assets and code.**
 
+[![PyPI version](https://img.shields.io/pypi/v/git-brain.svg)](https://pypi.org/project/git-brain/)
+[![Documentation](https://img.shields.io/badge/docs-gh--pages-blue.svg)](https://fanaticpythoner.github.io/git-brain/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## 🔥 Why Brain Will Revolutionize Your Workflow (And Save Your Sanity)
