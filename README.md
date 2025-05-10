@@ -147,38 +147,56 @@ Refer to [Core Concepts](core_concepts.md) for detailed explanations.
 Brain's power and control come from two straightforward INI configuration files. See [Configuration Files](configuration_files.md) for details.
 
 ### `.brain` File (Located in the Brain Repository Root)
-Defines the brain's identity and what "neurons" it offers for sharing.
+Defines the brain's identity and, crucially, what "neurons" it offers for sharing and under what conditions.
+
 ```ini
 [BRAIN]
-ID=global-brand-assets
-DESCRIPTION=Official company branding materials and guidelines
+ID = global-brand-assets
+DESCRIPTION = Official company branding materials and guidelines
 
 [EXPORT]
-# path/in/brain/repository = permission (readonly or readwrite)
 logos/standard/color.svg = readonly
+logos/standard/white.svg = readonly
 fonts/primary_typeface.ttf = readonly
+style_guides/corporate_identity.pdf = readonly
 templates/presentations/quarterly_review.pptx = readwrite
+src/shared_utils/ = readonly
+configs/common.json = readwrite
 ```
+*   **`[BRAIN]`**: Contains the unique `ID` and `DESCRIPTION`.
+*   **`[EXPORT]`**: Lists shareable paths and their permissions (`readonly` or `readwrite`).
+*(For advanced `[ACCESS]` and `[UPDATE_POLICY]` sections, see the [Configuration Files](configuration_files.md) documentation.)*
 
 ### `.neurons` File (Located in the Consumer Repository Root)
-Specifies Brain connections, neuron mappings, and synchronization policies.
+Specifies which Brains this project connects to, how neurons are mapped into the local filesystem, and the policies for synchronization.
+
 ```ini
-[BRAIN:brand-kit] # User-defined alias
-REMOTE=git@github.com:our-org/global-brand-assets.git
-BRANCH=main
+[BRAIN:brand-kit]
+REMOTE = git@github.com:our-org/global-brand-assets.git
+BRANCH = main
+
+[BRAIN:ci-cd-pipelines]
+REMOTE = file:///opt/shared-git/common-ci-cd-pipelines
+BRANCH = stable
 
 [SYNC_POLICY]
-AUTO_SYNC_ON_PULL=true
-CONFLICT_STRATEGY=prompt
-ALLOW_LOCAL_MODIFICATIONS=false
-ALLOW_PUSH_TO_BRAIN=false
-AUTO_SYNC_ON_CHECKOUT=false
+AUTO_SYNC_ON_PULL = true
+CONFLICT_STRATEGY = prompt
+ALLOW_LOCAL_MODIFICATIONS = false
+ALLOW_PUSH_TO_BRAIN = false
+AUTO_SYNC_ON_CHECKOUT = true
 
 [MAP]
-# key_name_is_arbitrary = brain_alias::path/in/brain/repo::path/in/this/consumer/repo
 main_logo = brand-kit::logos/standard/color.svg::src/assets/images/company_logo.svg
-quarterly_template = brand-kit::templates/presentations/quarterly_review.pptx::presentations/templates/quarterly.pptx
+style_guide_pdf = brand-kit::style_guides/corporate_identity.pdf::docs/branding/main_style_guide.pdf
+default_ci = ci-cd-pipelines::gitlab/standard_build.yml::.gitlab/ci/default.yml
+shared_utilities = brand-kit::src/shared_utils/::lib/common_utils/
+common_config = brand-kit::configs/common.json::config/app_config.json
 ```
+*   **`[BRAIN:<alias>]`**: Defines a connection to a brain, its `REMOTE` URL, and `BRANCH`.
+*   **`[SYNC_POLICY]`**: Sets rules for synchronization, conflicts, and local changes. (Defaults apply if not specified).
+*   **`[MAP]`**: Maps neurons using the format `key_name = brain_alias::path_in_brain::path_in_consumer`.
+*(Consult the [Configuration Files](configuration_files.md) documentation for a comprehensive explanation of all options and defaults.)*
 
 ## 🎛️ Full Command Reference
 
